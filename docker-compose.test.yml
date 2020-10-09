@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  postgres:
+    image: postgres:12.2-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: test
+  backup:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      POSTGRES_URL: "postgresql://test:test@postgres/test?sslmode=disable"
+      KEYS: "test/backup/test.latest.dump,test/backup/test.{ds}.dump"
