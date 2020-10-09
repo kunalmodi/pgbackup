@@ -2,13 +2,13 @@ name: registry
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build-and-publish-latest:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' # Running this job only for master branch
+    if: github.ref == 'refs/heads/main' # Running this job only for main branch
 
     steps:
     - uses: actions/checkout@v2 # Checking out the repo
