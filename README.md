@@ -16,7 +16,7 @@ spec:
       template:
         spec:
           containers:
-          - name: cron
+          - name: pgbackup
             image: docker.pkg.github.com/kunalmodi/pgbackup/pgbackup:latest
             env:
             - name: GET_HOSTS_FROM
